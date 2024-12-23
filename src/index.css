@@ -1,0 +1,109 @@
+/* src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* Define the keyframes animation */
+@keyframes slideIn {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+  @keyframes slideOut {
+    0% {
+      transform: translateX(0%);
+    }
+    
+    50%{
+        transform: translateX(-50%);
+    }
+   
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  
+  
+  /* Apply the animation to the .navbarTr class */
+  .navbarTr {
+    animation: slideIn 1s ease-in-out forwards;
+     /* Adjust duration and easing as needed */
+  }
+
+  .navbarClose {
+    animation: slideOut 3s ease-in-out backwards;
+  }
+
+  /* Define keyframes for border animation */
+@keyframes borderExpand {
+    0% {
+      width: 0%;
+    }
+    100% {
+      width: 100%;
+    }
+  }
+  
+  @keyframes borderCollapse {
+    0% {
+      width: 100%;
+    }
+    100% {
+      width: 0%;
+    }
+  }
+  
+  /* Apply animation for hover */
+  .hover-border::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px; /* Adjust height as needed */
+    background: black; /* Adjust color as needed */
+    transition: width 0.5s ease-in-out;
+  }
+  
+  .hover-border:hover::after {
+    width: 100%;
+  }
+
+
+  @keyframes slide {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  .slide-in {
+    animation: slide 1s ease-in-out forwards;
+  }
+
+
+
+  .loader {
+    @apply w-12 aspect-square grid text-[#514b82];
+    background: 
+      conic-gradient(from 90deg at 3px 3px, transparent 90deg, currentColor 0)
+      -3px -3px / calc(50% + 1.5px) calc(50% + 1.5px);
+    animation: l28 2s infinite;
+  }
+  
+  .loader::before,
+  .loader::after {
+    content: "";
+    @apply col-start-1 col-end-1 row-start-1 row-end-1;
+    background: repeating-conic-gradient(transparent 0 35deg, currentColor 0 90deg);
+    -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #000 0);
+    @apply rounded-full;
+  }
+  
+  .loader::after {
+    @apply m-[20%];
+  }
